@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="actionBtn" type="button"> clicke here </button>
+    <div id="output"> </div>
+<script>
+    let btn = document.getElementById("actionBtn");
+    let op = document.getElementById("output");
+    btn.addEventListener('click' , () =>
+    {
+         btn.setAttribute("class", "btn-cls");
+        let btncls = btn.getAttribute("class");
+        op.innerText="this is  class :"+btncls;   
+    })
+
+    btn.addEventListener("dblclick" ,()=>{
+       let a = btn.getAttribute('type');
+       op.innerText = "thsis is type: "+a;
+    })
+
+    btn.addEventListener("contextmenu",(e)=>{
+        e.preventDefault();
+        btn.removeAttribute("class");
+        op.innerText="class removed";
+    })
+
+
+</script>
+</body>
+</html>

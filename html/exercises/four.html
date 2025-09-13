@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style >
+        *{
+            height: 100%;
+            width: 100%;
+        }
+        .container{
+
+            height: 100%;
+            background-color: rgb(26, 26, 24);
+        }
+        .cart{
+            height: 50px;
+            width: 50px;
+            /* border: 1px solid black; */
+            position: absolute;
+            top :10px;
+            right: 10px;
+        }
+        
+        .chat{
+            height: 70px;
+            width: 70px;
+            /* border: 1px solid black; */
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+        }
+        .button{
+             cursor: pointer;
+            border: none;
+              height: 50px;
+            width: 50px;
+        }
+
+        .scroll-box{
+            height: 200px;
+            overflow-y: auto;
+            border: 2px solid blue;
+            margin: 40px  auto;
+            padding: 0;
+            position: relative;
+        }
+        .sticky-title{
+            position: sticky;
+            top: 0;
+            height: 25px;
+            background-color: gold;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid palevioletred;
+
+        }
+        .task.list{
+            background-color: silver;
+            border: 2px solid red;
+            margin: 10px;
+            position: absolute;
+        }
+        p{
+            height: 20px;
+            margin:10px;
+            background-color: silver;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="cart">
+           <img src="add-to-cart.png" alt="png"> 
+          
+        </div>
+       
+            <div class="scroll-box">
+                <h2 class="sticky-title">My Task</h2>
+                <div class="task-list">
+                    <p> task 1</p>
+                    <p>task 2</p>
+                    <p>task 3</p>
+                    <p>task 4</p>
+                    <p>task 5</p>
+                    <p>task 6</p>
+                    <p>task 7</p>
+                    <p>task 8</p>
+                </div>
+            </div>
+       
+        <div class="chat">
+       <button class="button"> <img src="chat.png" alt="chat"></button>     
+        </div>
+       
+    </div>
+    
+    
+</body>
+</html>

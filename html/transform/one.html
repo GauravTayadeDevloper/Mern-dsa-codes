@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-container{
+            height: 300px;
+            width: 500px;
+            overflow: hidden;
+          
+        }
+        img{
+            height: 300px;
+            width: 500px;
+              transition: all 1s linear;
+        }
+        img:hover{
+            transform: translateY(10px) scale(1.2);
+        }
+
+        .btn{
+            background-color: burlywood;
+            color: aliceblue;
+             transition: all 1s ease;
+        }
+        .btn:hover{
+
+            box-shadow: 2px 2px 4px black ;
+        }
+
+
+        .card{
+            height: 200px;
+            width: 200px;
+            background-color: beige;
+            text-align: center;
+             transition: transform 2s ease-in, background-color 3s ease-in-out;
+            
+        }
+        .card:hover{
+        
+            transform: rotate(90deg) skew(20deg ,20deg);
+                background-color:chartreuse ;
+        }
+
+        .icon{
+            height: 50px;
+            width: 50px;
+            font-size: 50px;
+             transition: all 2s ease-out;
+
+        }
+        .icon:hover{
+            transform: scale(1.3) rotate(15deg) ;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- image hover zoom  + lift -->
+    <div class="image-container">
+        <img src="15.jpg" alt="img">
+    </div>
+    <br>
+    <!-- 3d button press effect -->
+    <button class="btn">Click mee</button>
+    <br><br>
+
+    <!-- tilted card effect -->
+    <div class="card"> tilt me</div>
+    <br><br>
+
+    <!-- float icon effect -->
+    <div class="icon">🌻</div>
+
+
+</body>
+</html>

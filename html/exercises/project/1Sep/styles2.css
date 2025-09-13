@@ -1,0 +1,234 @@
+/* === Reset & Base === */
+/* TODO: Universal reset for margin, padding, and set box-sizing */
+* {
+  /* your code */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TODO: Body base
+   - Set a clean font, text color, background
+   - Line-height for readability */
+body {
+  /* your code */
+  font-family: sans-serif;
+  color: #333;              /* ✅ CHANGE HERE (blueviolet is hard to read) */
+  background-color: #fafafa;
+  line-height: 1.6;
+
+
+}
+
+/* === Layout Wrappers === */
+/* TODO: .container
+   - max-width (e.g., 1100px)
+   - center with margin
+   - horizontal padding */
+.container {
+  /* your code */
+  max-width: 1100px;
+  margin:  0 auto;
+  padding: 20px;
+  
+}
+
+/* TODO: #site-header
+   - vertical spacing
+   - center text */
+#site-header {
+  /* your code */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  /* TODO: bottom margin */
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  /* TODO: muted color and small bottom margin */
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* === Card Grid (no flex/grid) === */
+/* Use inline-block for columns and manage horizontal gaps with margins */
+.cards {
+  /* TODO: top spacing from header */
+ margin-top: 20px;
+ text-align: center;
+ 
+}
+.card img{
+  height: 300px;
+
+}
+/* TODO: .card
+   - display: inline-block
+   - width (e.g., 31% to allow 3 per row with margins)
+   - vertical-align: top
+   - background-color: #fff
+   - border, border-radius
+   - margin (to create gaps)
+   - overflow: hidden (to clip image corners) */
+.card {
+  /* your code */
+  display: inline-block;
+width: 31%;
+vertical-align: top;
+background-color: #fff;
+border-radius: 12px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+margin: 1%;
+overflow: hidden;
+text-align: left;
+}
+
+
+/* === Card Parts === */
+/* TODO: .card-img
+   - display: block
+   - width: 100%
+   - height: auto */
+.card-img {
+  /* your code */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* TODO: .card-body
+   - padding
+   - manage spacing to next block */
+.card-body {
+  /* your code */
+  padding: 15px;
+  
+}
+
+/* TODO: .card-title
+   - font-size
+   - margin-bottom */
+.card-title {
+  /* your code */
+   font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+/* TODO: .card-desc
+   - color (slightly muted)
+   - margin-bottom */
+.card-desc {
+  /* your code */
+color: #666;
+margin-bottom: 15px;
+}
+
+/* TODO: .meta
+   - spacing top/bottom inside card-body */
+.meta {
+  /* your code */
+  font-size: 0.9rem;
+  margin-top: 5px;
+
+
+}
+
+/* TODO: .price
+   - stronger weight or color emphasis */
+.price {
+  /* your code */
+    font-weight: bold;
+  color: #222;  
+}
+
+/* TODO: .badge
+   - optional: small inline box with padding, border, and rounded corners */
+.badge {
+  /* your code */
+  display: inline-block;    
+  margin-left: 10px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  background-color: #f39c12;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* TODO: .card-actions
+   - padding
+   - border-top to separate from body */
+.card-actions {
+  /* your code */
+  padding: 10px;
+  border-top: 1px solid #eee;
+  text-align: right;
+}
+
+/* TODO: .btn
+   - display: block or inline-block
+   - padding
+   - border
+   - background-color
+   - color
+   - border-radius
+   - cursor: pointer */
+.btn {
+  /* your code */
+display: inline-block;
+padding: 8px 16px;
+
+border: none;
+background-color: rgb(0, 0, 0);
+border-radius: 12px;
+color: #fff;
+border-radius: 6px;
+cursor: pointer;
+
+}
+.btn:hover {
+  background-color: #217dbb;   /* ✅ hover effect */
+}
+
+/* === Footer === */
+/* TODO: #site-footer
+   - top margin
+   - background-color (soft)
+   - centered text
+   - padding
+   - border-radius (optional) */
+#site-footer {
+  /* your code */
+  margin-top: 10px;
+  background-color: #7c8c81;
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.footer-text {
+  /* your code */
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  /* your code */
+  color: #ffeb3b;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* === Grouping Selector Example === */
+/* TODO: Share small letter-spacing across titles and footer-text */
+.card-title,
+.footer-text {
+  /* your code */
+letter-spacing: 0.5px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Counter</title>
+  <style>
+    body{
+        background: black;
+        color: white;
+    }
+    .warning {
+      color: red; /* Style for warning message */
+
+    }
+  </style>
+</head>
+<body>
+  <h1>Type your message</h1>
+  <textarea id="message" rows="4" cols="50" maxlength="100" placeholder="Type here..."></textarea>
+  <div>
+    <span id="charCount">0</span>/100 characters
+    <span id="warning" class="warning" style="display: none;">Character limit reached!</span>
+  </div>
+
+  <script>
+    let text = document.getElementById("message");
+    let charCount =document.getElementById("charCount");
+    let warning = document.getElementById("warning");
+    text.addEventListener('input',()=>{
+        charCount.textContent = text.value.length;
+        charCount.textContent == 100 ? warning.style.display="block": warning.style.display="none" ;
+    })
+
+    
+   
+  </script>
+</body>
+</html>

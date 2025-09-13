@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"> 
+   <style>
+     * {
+        box-sizing: border-box; 
+     }
+        /* h3{
+            background-color: yellow;
+            color: black;
+        } */
+        .internal{
+            background-color: beige;
+            color:burlywood;
+        }
+        .internal1,#external{
+            background-color: coral;
+            color: darkblue;
+        }
+        div{
+            background-color: aquamarine;
+            border: 1px solid blue;
+            height: 250px;
+            width: 300px;
+            margin: 50px;
+            padding: 20px;
+        }
+        .borderbox{
+            background-color: cadetblue;
+            color: brown;
+        }
+    </style>
+   
+</head>
+<body>
+    <h1 style="background-color: red;  color: blue;">INline css</h1>
+    <h2 class="internal"> Internal css</h2>
+    <h3 id="external"> External css</h3>
+    <h2 class="internal1"> internal one</h2>
+    <h1 class=" internal"> internal three</h1>
+<div>
+    box-sizing and box border
+
+    <h3 class="borderbox"> padding Margin border</h3>
+</div>
+
+</body>
+</html>
+<!-- inline css have most priority and then which css is created last that will get implemented -->
+ <!--
+ id vs class
+  
+id: 
+1: one id can be given to only one element 
+2: one element can have only one id 
+ 
+class: 
+1: one class can be given to multiple elements
+2: one elements can have multiple classes
+
+selectors
+1: class selector : in case of class use .  
+2: id selector : in case of id we use # 
+3: universal selector : * select all add css to all file
+4: element  selector : we take direct element 
+5: grouping selector : we can select multiple selector at onece 
+.as , h1 ,#b{
+
+
+}
+box-sizing and box border
+ it is used all the time to manage 
+Display : 
+1: inline
+-takes width acc to content itself
+- next element in same line
+-height and width ahve no effect
+2: Block
+-takes wdth 100% 
+-next element in new line
+-we can set height and width
+3:inline block
+-we can set and heigth and width
+-next element in same line
+4 None
+-uses to hide elements
+ block & inline 
+ black have default width 100% 
+ inline element cant give heigth and width
+
+
+ Margin
+ margin:10px -> all 4 sides margin will be added
+ margin:10px 20px -> top-bottom and left-right
+ margin:10px 20px 10px ->top left-rigth bottom
+ margin: 10px 20Px 30px 10px -> top rigth bottom left
+ margin-left , margin-right ,margin-top ,margin-bottom;  
+ -->

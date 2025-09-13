@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .box{
+        height: 50px;
+        margin-bottom: 30px;
+    }
+    .highlight{
+        font-weight: bold;
+        text-decoration: dotted;
+    }
+    .blue{
+        background-color: blue;
+    }
+   .rounded{
+    border-radius: 30px;
+    }
+    .shadow{
+        box-shadow: 5px 5px 5px green;
+    }
+
+</style>
+</head>
+<body>
+    <div id="myBox" class="box blue shadow" >I am A Box</div>
+    <button id="add">Add "highlight" </button>
+    <button id="remove">remove "blue" </button>
+    <button id="toggle">toggle "rounded" </button>
+    <button id="check">check "shadow" </button>
+    
+    <p id="para"> </p>
+
+    <script>
+        let mybox = document.getElementById("myBox")
+        let adding = document.getElementById("add")
+        let removing = document.getElementById("remove");
+        let toggling= document.getElementById("toggle");
+        let checking = document.getElementById("check");
+
+
+        let para = document.getElementById("para");
+
+        adding.addEventListener('click',()=>{
+            mybox.classList.add("highlight");
+           
+            para.innerHTML='This is <i> added highlight </i>';
+             
+            
+        })
+        removing.addEventListener('click',()=>{
+            mybox.classList.remove("blue");
+             
+            para.innerHTML='This is <i> removing blue </i>';
+    
+            
+        })
+        toggling.addEventListener('click',()=>{
+            mybox.classList.toggle("rounded");
+            
+            para.innerHTML='This is <i> added rounded </i>';
+           
+            
+        })
+
+        checking.addEventListener('click',()=>{
+            let a = mybox.classList.contains("shadow");
+ 
+            para.innerHTML='This is <i> added shadow </i>'+a;
+
+          
+        })
+
+
+
+    </script>
+</body>
+</html>

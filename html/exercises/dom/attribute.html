@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .main-cls{
+            background: beige;
+            width: 200px;
+            height: 300px;
+            margin: 50px auto;
+         
+            text-align: center;
+            align-content: center;
+            /* contextMenu */
+               
+        }
+    </style>
+</head>
+<body>
+    <div id="main"> This is main</div>
+
+    <script>
+
+        let div = document.querySelector('#main');
+        div.setAttribute('class','main-cls');
+        let divclass=div.getAttribute("class");
+        console.log(divclass);
+        // div.removeAttribute("class")
+
+    </script>
+</body>
+</html>

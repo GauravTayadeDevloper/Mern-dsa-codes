@@ -1,0 +1,62 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Card</title>
+  <link rel="stylesheet" href="profile.css" />
+  <style>
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  background: #f3f4f6;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 500px;
+  display: flex;
+  gap:20px;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.actions button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <img src="https://imageio.forbes.com/specials-images/imageserve/645ea1c4fce09061884bd21c/0x0.jpg?format=jpg&crop=2774,2772,x925,y0,safe&height=416&width=416&fit=bounds" alt="Profile" class="profile-img" />
+    <div class="profile-info">
+      <h2>Cristiano Ronaldo</h2>
+      <p>Frontend Developer</p>
+      <div class="actions">
+        <button>Follow</button>
+        <button>Message</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

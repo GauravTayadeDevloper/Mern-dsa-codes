@@ -1,0 +1,216 @@
+/* === Reset & Base === */
+/* TODO: Universal selector to reset margin, padding, and set box-sizing */
+* {
+  /* your code */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TODO: Style the body
+   - font-family
+   - text color
+   - background-color */
+body {
+  /* your code */
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: brown;
+background-color: #f4f4f4;
+line-height: 1.6;
+}
+
+/* TODO: .shell container
+   - max-width
+   - center align with margin
+   - padding */
+.shell {
+  /* your code */
+  max-width: 72ch;
+  padding: 30px ;
+  margin: 0 auto;
+}
+
+/* === Hero Section === */
+/* TODO: #hero
+   - text-align center
+   - margin bottom */
+#hero {
+  /* your code */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* TODO: .page-title
+   - font size
+   - margin bottom */
+.page-title {
+  /* your code */
+  font-size: 50px;
+   margin-bottom: 15px;
+   color: #222;
+}
+
+/* TODO: .page-subtitle
+   - muted text color
+   - margin bottom */
+.page-subtitle {
+  /* your code */
+  color: darkcyan;
+  margin-bottom: 20px;
+}
+
+/* TODO: .hero-banner
+   - background-image (use a placeholder image)
+   - background-size, background-position
+   - background-attachment: fixed
+   - height and border-radius */
+.hero-banner {
+  /* your code */
+  background-image: url("https://images.ctfassets.net/8hwv8jdog42r/398qrPg4IYPJ4SQnLEMSOZ/e989ca9b6fceefd40d3150669e4db178/Image_of_stage_eFootball_2024_World_Championship_Finals__mobile_size_");
+background-size: cover;
+background-position: center;
+/* background-attachment: fixed; */
+height: 200px;
+border-radius: 12px;
+margin-top: 15px;
+}
+
+/* === Panel Set === */
+/* TODO: .panel-set
+   - vertical spacing between panels */
+.panel-set {
+  /* your code */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* TODO: .callout base
+   - background-color: white
+   - border-left
+   - padding
+   - border-radius
+   - margin bottom */
+.callout {
+  /* your code */
+  background-color: rgb(255, 255, 255);
+  border-left: 5px solid transparent;
+  padding: 15px;
+  border-radius: 12px;
+
+}
+
+/* TODO: .callout-title
+   - font size
+   - margin bottom */
+.callout-title {
+  /* your code */
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+
+}
+
+/* TODO: .callout-text
+   - font size
+   - line-height
+   - margin bottom */
+.callout-text {
+  /* your code */
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Variants */
+/* TODO: .info: blue tones */
+/* TODO: .success: green tones */
+/* TODO: .warning: amber tones */
+/* TODO: .danger: red tones */
+/* TODO: .note: gray tones */
+.info {
+  /* your code */
+  border-left: 5px solid blue;
+  background-color:  #e8f0ff;
+}
+.success {
+  /* your code */
+border-left: 5px solid green;
+background-color:#e3f8e6;
+}
+.warning {
+  /* your code */
+  border-left: 5px solid orange;
+  background-color: #ffffff;
+  
+}
+.danger {
+  /* your code */
+border-left: 5px solid red;
+background-color: #ffe8e6;
+}
+.note {
+  /* your code */
+ 
+border-left: 5px solid gray;
+background-color: #d6b3b3;
+}
+
+/* TODO: .callout-list
+   - remove default list style
+   - add padding
+   - spacing */
+.callout-list {
+  /* your code */
+    list-style: none;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+/* TODO: .callout-item
+   - spacing between items
+   - optional subtle border-left */
+.callout-item {
+  /* your code */
+    margin-bottom: 5px;
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+
+}
+
+/* Footer */
+/* TODO: #site-footer
+   - background-color
+   - text-align
+   - padding
+   - margin top */
+#site-footer {
+  /* your code */
+    background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  border-radius: 12px;
+}
+.footer-text {
+  /* your code */
+    font-size: 14px;
+  margin-bottom: 8px;
+}
+.footer-link {
+  /* your code */
+    color: cyan;
+  text-decoration: none;
+}
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Grouping example */
+/* TODO: Group .callout-title and .footer-text for shared letter-spacing */
+.callout-title,
+.footer-text {
+  /* your code */
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: dodgerblue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+
+            /* Animation applied */
+            animation-name: moveBox;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 5;
+            animation-fill-mode: forwards;
+        }
+
+        /* @keyframes moveBox {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(200px);
+            }
+        } */
+
+        @keyframes moveBox {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(50vw);
+            }
+            50% {
+                transform: translateX(100vw);
+                background-color: brown;
+            }
+            75%{
+                transform: translate(50vh,50vh) scale(1.5)  ;
+                
+            }
+            100%{
+                transform: translateX(0);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Animate Me</div>
+</body>
+</html>
