@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /*  your css code here. If applicable */
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(40, 30px); /* 40 columns */
+    grid-template-rows: repeat(20, 30px);    /* 20 rows */
+    gap: 4px;                                /* space between squares */
+    background-color: black;
+    align-content: center;
+    justify-content: center;
+}
+
+.square {
+  background-color: #282828;
+  border: 1px solid #3c3c3c;
+    background-color: #282828; /* dark mode base color */
+    transition: background-color 0.5s ease-in-out; /* smooth color change */
+}
+
+	
+    </style>
+</head>
+
+<body>
+	<div class="container">
+		
+	</div>
+	<!-- the entire body must be written by student -->
+    <script >
+        //your JS code here. If required.
+// let container = document.querySelector(".container"); 
+
+// for(let i=0; i<800;i++)
+// 	{       let sq = document.createElement("div"); // create a NEW div each time
+//     sq.classList.add("square");
+//     container.appendChild(sq);
+// }
+
+
+let container = document.querySelector(".container"); 
+
+for (let i = 0; i < 800; i++) {
+    let sq = document.createElement("div"); 
+    sq.classList.add("square");
+
+    // Add hover effect with random color
+    sq.addEventListener("mouseover", () => {
+        let originalColor = sq.style.backgroundColor; // store current color
+        sq.style.backgroundColor = getRandomColor();  // change to random color
+
+        // After 1 second, revert back
+        setTimeout(() => {
+            sq.style.backgroundColor = originalColor || "#282828"; 
+        }, 1000);   
+    });
+
+    container.appendChild(sq);
+}
+
+// Function to generate random color
+function getRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+</script>
+
+</body>
+
+</html>

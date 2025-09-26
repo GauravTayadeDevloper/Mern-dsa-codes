@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<ul>
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>Item 4</li>
+		<li id="level">Item 5</li>
+		<li>Item 6</li>
+		<li>Item 7</li>
+		<li>Item 8</li>
+		<li>Item 9</li>
+		<li>Item 10</li>
+	</ul>
+    <script >
+let level = document.getElementById("level");
+let parent = level.parentNode;
+let item= parent.children;
+index = Array.from(item).indexOf(level);
+
+ alert("The level of the element is: "+index);
+
+</script>
+</body>
+</html>
+<!-- //your JS code here. If required.
+let sqr = document.querySelectorAll(".square");
+sqr.forEach((s)=>{
+	s.addEventListener("mouseover",()=>{
+		sqr.forEach((osqr)=>{
+			if(osqr!=s)
+			{
+				osqr.style.backgroundColor="#6F4E37";
+			}
+		});
+			
+	});
+	s.addEventListener("mouseout",()=>{
+		sqr.forEach((st)=>{
+			st.style.backgroundColor="#E6E6FA";
+		});
+	});
+});
+
+ -->

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let time1 =document.createElement("p"); 
+        let t1 = performance.now();
+        let para = document.createElement("p"); 
+        for(let i=0;i<100;i++)
+        {
+            para.textContent="this is para "+i;
+            document.body.appendChild(para);
+        }
+        let t2 = performance.now();
+        let b = t2-t1;
+        time1.textContent="this is time without frag or optimisation "+b;
+        document.body.appendChild(time1);
+        console.log(t2-t1);
+        let time2 =document.createElement("p");
+        let t3 = performance.now();
+        let frag = document.createDocumentFragment();
+        for(let i=0;i<100;i++)
+        {
+            let para = document.createElement("p")
+            para.textContent="this is frag para "+i;
+            frag.appendChild(para);
+        }
+        document.body.appendChild(frag);
+        let t4 = performance.now();
+        let a =t4-t3;
+        console.log(t4-t3);
+         time2.textContent="this is time without frag or optimisation "+a;
+        document.body.appendChild(time2);
+    </script>
+    
+</body>
+</html>
+
+<!--
+ reflow:- calculate position and size
+repaint:- draw (showing an element)
+-->

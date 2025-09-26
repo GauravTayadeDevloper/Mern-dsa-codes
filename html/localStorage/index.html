@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<input placeholder="enter name" type="text" id="name"/>
+<input placeholder="enter email" type="email" id="email"/>
+<!-- <button id="btn">Submit</button> -->
+<script>
+    // localStorage.Myname="Gaurav";
+    // console.log(localStorage.Myname);
+
+    // localStorage.setItem("myName","Gauarv Tayade");
+    // localStorage.setItem("email","gauravtayade619@gmail.com")
+    // console.log(localStorage.getItem("myName") , localStorage.getItem("email"));
+
+
+// let name = document.getElementById("name");
+// let email = document.getElementById("email");
+// // let btn = document.getElementById("btn");
+// name.addEventListener("input",(e)=>{
+// let a = e.target.value;
+// localStorage.setItem("myName",a);
+// })
+// email.addEventListener("input",(e)=>{
+// let a = e.target.value;
+// localStorage.setItem("myemail",a);
+// })
+// btn.addEventListener("click",()=>{
+// localStorage.setItem("myName",name.value );
+// localStorage.setItem("MyEmail",email.value);
+
+// })
+let Mydata = {
+    mayName: "Gaurav",
+    age:"21"
+}
+// console.log(localStorage.getItem("myName"),localStorage.getItem("MyEmail"));
+let a = Object.keys(Mydata);
+
+ for(let i=0;i<a.length;i++)
+ {
+     localStorage.setItem(a[i],Mydata[a[i]]);
+}
+
+// localStorage.setItem("user", {name:"Gaurav", email:"gaurav@gmail.com"});
+
+// localStorage.setItem("Mydata",JSON.stringify(Mydata));
+//localStorage.clear();
+// localStorage.removeItem(age);
+
+</script>
+</body>
+
+
+</html>

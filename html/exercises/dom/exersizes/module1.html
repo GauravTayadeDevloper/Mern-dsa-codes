@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+</head>
+
+<body>
+    <!-- the entire body must be written by student -->
+    <table >
+    <caption>
+      Monthly savings
+    </caption>
+    <tr>
+      <th>Item</th>
+      <th>Prices in Rs</th>
+    </tr>
+    <tr>
+      <td class="item">Tea</td>
+      <td class="price">50</td>
+    </tr>
+    <tr>
+      <td class="item">Coffee</td>
+      <td class="price">70</td>
+    </tr>
+    <tr>
+      <td class="item">Biscuits</td>
+      <td class="price">100</td>
+    </tr>
+    <tr>
+      <td class="item">Rice</td>
+      <td class="price">130</td>
+    </tr>
+    <tr>
+      <td class="item">Milk</td>
+      <td class="price">50</td>
+    </tr>
+  </table>
+    <script>
+const getSumBtn = document.createElement("button");
+getSumBtn.append("Get Total Price");
+document.body.appendChild(getSumBtn);
+
+const getSum = () => {
+      let totalPrice = document.querySelectorAll(".price"); 
+      let sum = 0;
+      totalPrice.forEach(price => {
+        sum += parseInt(price.textContent, 10);
+      });
+
+      let table = document.getElementsByTagName("table")[0];
+      let row = document.createElement("tr");
+
+      // requirement: single cell showing total
+      let cell = document.createElement("td");
+      cell.id="ans";
+      cell.setAttribute("colspan", "2"); // span across both columns
+      cell.textContent = "Total Price = " + sum;
+
+      row.appendChild(cell);
+      table.appendChild(row);
+
+
+};
+
+getSumBtn.addEventListener("click", getSum);
+
+
+
+
+</script>
+
+</body>
+
+</html>

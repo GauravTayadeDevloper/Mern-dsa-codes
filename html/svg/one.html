@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg - one</title>
+</head>
+<body>
+    <!-- svg create drawing area in html
+     width/height: op size on the pafe in css pixels default
+     xmlns svg namespace requiredn proper svg parsing in html
+      -->
+    <svg
+    width="320"
+    height="400"
+    xmlns="http://www.w3.org/2000/svg"
+    style="border: 2px solid black"
+    >
+    
+    <!-- =======================
+         1) RECTANGLE (<rect>)
+         =======================
+         Key attributes:
+         - x, y: top-left corner position of the rectangle (in pixels). (20, 20)
+         - width, height: size of the rectangle. (120, 60)
+         - fill: interior color of the shape.
+         - stroke: outline (border) color.
+         - stroke-width: thickness of the outline. (2)
+    -->
+         <!-- <rect x="20" y="20" width="120" height="60" fill="lightblue" stroke="black" stroke-width="2" /> -->
+            <rect x="30" y = "40" width="100" height="50" fill="grey" stroke = "blue" strokw-width="3"/>
+
+    <!-- ===================
+         2) CIRCLE (<circle>)
+         ===================
+         Key attributes:
+         - cx, cy: center coordinates of the circle. (220, 50)
+         - r: radius (half the diameter). (30)
+         - fill: interior color. 
+         - stroke: outline color.
+         - stroke-width: outline thickness. (2)
+    -->
+
+    <!-- <circle cx="220" cy="50" r="30" fill="lightgreen" stroke="black" stroke-width="2" /> -->
+    <circle cx="200" cy="50" r="20" fill="lightblue" stroke="red" stroke-width="1"/>
+
+
+    <!-- ===============
+         3) LINE (<line>)
+         ===============
+         Key attributes:
+         - x1, y1: starting point of the line. (20, 140)
+         - x2, y2: ending point of the line. (300, 180)
+         - stroke: line color (required, since a line has no fill).
+         - stroke-width: thickness of the line. (3)
+    -->
+
+    <line x1="20" y1="140" x2="300" y2="180" stroke="red" stroke-width="3" />
+    <line x1="30" y1="120" x2="280" y2="160" srtoke="red" stroke-width="5" />
+
+    <!--
+      BONUS: A tiny label to show text rendering inside SVG.
+      
+      Attributes:
+      - x, y: baseline start position of the text.
+      - fill: text color (works like font color).
+      - font-size: size of the text.
+    -->
+    <text x="20" y="105" fill="black" font-size="14">Rectangle</text>
+    <text x="200" y="105" fill="black" font-size="14">Circle</text>
+    <text x="20" y="195" fill="black" font-size="14">Line</text>
+            <polygon
+            points="
+            50,15  
+            61,35
+            82,35
+            66,50
+            72,71
+            50,60   
+            28,71
+            34,50
+            18,35
+            39,35
+                "
+            />
+    </svg>
+</body>
+</html>

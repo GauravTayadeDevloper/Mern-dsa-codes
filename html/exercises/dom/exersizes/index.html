@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Practice</title>
+  <style>
+    .title { font-weight: 700; }
+    .box   { padding: 8px; border: 1px solid #ddd; margin: 6px 0; }
+    .blue  { background:#e6f0ff; }
+    .red   { background:#ffe6e6; }
+    .hidden{ display:none; }
+    .rounded { border-radius: 8px; }
+    .highlight{ outline: 2px dashed orange; }
+  </style>
+</head>
+<body>
+  <div id="main" class="box blue">
+    <h1 class="title">Welcome</h1>
+    <p id="info">This is a paragraph.</p>
+    <button id="action">Click me</button>
+  </div>
+<img id="hero" src="https://via.placeholder.com/120x60?text=A" alt="Image A">
+<button id="swap">Swap Image</button>
+
+  <div id="playground" class="box">
+    <h2>Playground</h2>
+    <ul id="list">
+      <li class="item">Alpha</li>
+      <li class="item">Beta</li>
+    </ul>
+    <div id="output"></div>
+  </div>
+
+  <!-- Your scripts go here -->
+  <script>
+    // write code per task below
+    
+    // task one
+//     let id = document.getElementById("main");
+//     let classa = document.getElementsByClassName("title");
+//     let p = document.getElementsByTagName("p");
+//     let firstItem = document.querySelector(".item");
+//     let allItems = document.querySelectorAll(".item");
+// console.log(" by id "+id)
+// console.log(" by class "+classa)
+// console.log(" by  tags"+p)
+// console.log(" by  querySelector "+firstItem)
+// console.log(" by querySelectorAll "+allItems)
+
+// task two
+
+// let main = document.getElementById("main");
+// let cn = main.childNodes.length;
+// let ch = main.children.length;
+// console.log("child node length "+cn +" children length " +ch)
+ 
+//  // childerNode includes all elements or text inside it and children only include children element not its text content or its element
+
+// //task three
+
+// let indfo = document.getElementById("info");
+// // indfo.textContent = "<b>Safe?</b>";
+// indfo.innerHTML = "<b>Safe?</b>";
+
+// // innerhtml render html tags as well so it can couse security problem so textConent is better
+// task 4
+
+// let pg = document.getElementById("playground");
+// let a = document.createElement("p");
+// a.textContent="created and apended succesfully";
+// pg.appendChild(a);
+
+//task 5 6 pending;
+
+
+//task 7
+
+// let hero= document.getElementById("hero");
+// let swap = document.getElementById("swap");
+
+// swap.addEventListener("click", ()=>
+// {
+//     if(hero.getAttribute("src")==="https://via.placeholder.com/120x60?text=A")
+// {
+//     hero.setAttribute("src", "https://via.placeholder.com/120x60?text=B");
+//     hero.setAttribute("alt", "Image B");
+// }
+// else{
+//     hero.setAttribute("src", "https://via.placeholder.com/120x60?text=A");
+//     hero.setAttribute("alt","Image A");
+// }
+// });
+
+
+
+
+
+
+ </script>
+</body>
+</html>
