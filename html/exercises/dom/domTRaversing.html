@@ -10,7 +10,7 @@
     <div id="container"> 
         <h2>title</h2>
         <p>fisrt</p>
-        <p>second</p>
+        <p id="s">second</p>
         <p>third</p>
     </div>
 <script>
@@ -18,12 +18,18 @@
 console.log(container.firstElementChild,container.lastElementChild,container.children);
 
 let allchild=container.children;
+console.log(allchild)
 let secondpara = allchild[2];
 console.log(secondpara.nextElementSibling);
 console.log(secondpara.previousElementSibling);
+console.log(secondpara.parentElement);
+console.log(secondpara)
 
-addEventListener('focus',()=>{
-    let 
+document.querySelector("#s").addEventListener('click',()=>{
+    let newPara = document.createElement("p");
+    newPara.innerHTML="hii this is <strong>Gaurav</strong> ";
+    container.appendChild(newPara);
+    console.log(newPara.firstElementChild,newPara.lastChild,newPara.lastElementChild,newPara.children);
 })
 
 </script>

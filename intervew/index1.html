@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            height: 500px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <button  value="Orange">Orange</button>
+        <button  value="red">red</button>
+        <button  value="blue">blue</button>
+        <button  value="violet">violet</button>
+        <button  value="yellow">yellow</button>
+    </div>
+    <script>
+        let button = document.querySelectorAll("button");
+        let div = document.getElementById("div");
+        button.forEach((btn)=>{
+            let val = btn.value;
+
+            btn.addEventListener("click",(e)=>{
+                e.preventDefault();
+                div.style.backgroundColor=val;
+            })
+        })
+    </script>
+</body>
+</html>

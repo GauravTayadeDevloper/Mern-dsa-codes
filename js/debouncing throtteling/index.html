@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="search" placeholder="....search">
+    <div>
+
+    </div>
+    <script>
+        // let div = document.querySelector("div")
+        let ip = document.getElementById("search");
+        // ip.addEventListener("input",()=>{
+        //     let a = document.createElement("a");
+        //     a.textContent="API call for"+ip.value;
+        //     div.appendChild(a);
+        // })
+// debouncing
+        // let timer;
+        // ip.addEventListener("input",()=>{
+        //     clearTimeout(timer);
+        //     timer= setTimeout(()=>{
+        //         console.log("API CALL For: ",ip.value)
+        //     },500)
+        // })
+// approach 3 (with debouncing generic fun)
+
+
+function func(){
+
+        console.log("API CALL FOR", ip.value)
+    
+}
+function debounc(func,delay)
+{
+    let timer;
+    return function(...args){
+        clearTimeout(timer)
+    timer = setTimeout(()=>{
+        func(...args)
+    },delay)
+}
+}
+let debounce = debounc(func,500);
+ip.addEventListener("input",(e)=>{
+    debounce(e.target.value) 
+})
+
+    </script>
+</body>
+</html>

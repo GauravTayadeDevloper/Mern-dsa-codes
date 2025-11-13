@@ -1,0 +1,92 @@
+// console.log("start");
+// let b = setTimeout(()=>{
+//     console.log("mid")
+// },5000)
+// console.log("end");
+
+// clearTimeout(b);
+
+
+// setInterval(()=>{
+//     let d = new Date();
+// let hour = d.getHours();
+// let min = d.getMinutes();
+// let sec = d.getSeconds();
+// let time = d.toLocaleTimeString();
+//     console.log(`${hour}/${min}/${sec}  ${time}`)
+// },1000)
+
+// let count=0;
+// let a =setInterval(()=>{
+//     if(count >=4)
+// {
+// clearInterval(a);
+// }
+//     count++;
+//     console.log(count);
+// },1000)
+
+
+// let count=0;
+
+// function time()
+// {
+
+//     count++;
+//     console.log(count);    
+// setTimeout(time,1000);
+
+// }
+// time()
+
+// function longTask(){
+//     for(let i=0;i<2e9 ;i++)
+//     {}
+//     console.log("i am the loop ");   
+// }
+// console.log("start");
+// longTask();
+//  console.log("im not loop");
+
+//     function longTask(){
+//     for(let i=0;i<2e9 ;i++)
+//     {}
+//     console.log("i am the loop ");
+// }
+// console.log("start");
+// setTimeout(longTask,1000);
+// console.log("End");
+
+// let n=5;
+// function counting()
+// {
+ 
+//     if(n<1)
+//     {
+//         return;
+//     }
+//     console.log(n);
+//     n--;
+//     setTimeout(counting,1000);
+// }
+
+// counting();
+
+// console.log("Start");
+
+// setTimeout(() => console.log("A"), 1000);
+// setTimeout(() => console.log("B"), 0);
+
+// console.log("End");
+
+
+let n = 1;
+let a = setInterval(() => {
+  if (n > 9) {   
+    clearInterval(a); 
+
+  }
+
+  console.log("tick...");
+  n++;
+}, 1000);

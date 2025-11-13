@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg"></p>
+    <button id="btn">Cancel Meeting</button>
+    <script>
+        let msg =document.getElementById("msg");
+        let btn=document.getElementById("btn");
+
+        let a =setTimeout(()=>{
+            msg.textContent="meeting starts Now !";
+        },3000);
+        btn.addEventListener("click",()=>{
+            clearTimeout(a);
+            msg.textContent="meeting Not starting"
+        })
+    </script>
+</body>
+</html>

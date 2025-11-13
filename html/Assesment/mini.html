@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Manager</title>
+</head>
+<body>
+  <h2>Student Manager</h2>
+
+  <form id="studentForm">
+    <label>Name:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label>Course:</label>
+    <input type="text" id="course" required><br><br>
+
+    <label>Marks:</label>
+    <input type="number" id="marks" min="0" max="100" required><br><br>
+
+    <button type="submit">Add Student</button>
+  </form>
+
+  <h3>Student List</h3>
+  <table border="1" id="studentTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Marks</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    class Student {
+      constructor(name, course, marks) {
+        this.name = name;
+        this.course = course;
+        this.marks = parseInt(marks);
+      }
+
+      getGrade() {
+        if (this.marks >= 40) {
+          return "Pass";
+        } else {
+          return "Fail";
+        }
+      }
+    }
+
+    const form = document.getElementById("studentForm");
+    const tableBody = document.querySelector("#studentTable tbody");
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    showStudents();
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let name = document.getElementById("name").value.trim();
+      let course = document.getElementById("course").value.trim();
+      let marks = document.getElementById("marks").value;
+
+      if (name === "" || course === "" || marks === "") {
+        alert("please fill all fields");
+        return;
+      }
+
+      let s = new Student(name, course, marks);
+      students.push(s);
+      localStorage.setItem("students", JSON.stringify(students));
+
+      addStudentRow(s);
+      form.reset();
+    });
+
+    function addStudentRow(student) {
+      let tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${student.name}</td>
+        <td>${student.course}</td>
+        <td>${student.marks}</td>
+        <td>${student.getGrade()}</td>
+      `;
+      tableBody.appendChild(tr);
+    }
+
+    function showStudents() {
+      tableBody.innerHTML = "";
+      students.forEach(stu => {
+        addStudentRow(stu);
+      });
+    }
+  </script>
+</body>
+</html>

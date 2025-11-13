@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Liga Matches Demo</title>
+  <style>
+    body { font-family: Arial; background: #f2f2f2; padding: 20px; }
+    h1 { text-align: center; color: #d32f2f; }
+    #league-info { text-align: center; margin-bottom: 20px; }
+    #league-info img { width: 60px; vertical-align: middle; margin-right: 10px; }
+    #matches { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .match { background: white; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 15px; width: 250px; text-align: center; }
+    .match h3 { margin: 10px 0; font-size: 1.1em; }
+    .teams { font-weight: bold; }
+    .date { color: #555; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <div id="league-info">Loading League Info…</div>
+  <h1>La Liga Fixtures 2025/26</h1>
+  <div id="matches">Loading matches…</div>
+
+  <script>
+    const LEAGUE_ID = 140;
+    const SEASON = 2025;
+    const API_KEY = "67e7a1bf1ec752974ac7d1fe95043b2b";
+
+    async function fetchLeagueInfo() {
+      const url = `https://v3.football.api-sports.io/leagues?id=${LEAGUE_ID}`;
+      const res = await fetch(url, { headers: { "x-apisports-key": API_KEY } });
+      const data = await res.json();
+      const league = data.response[0].league;
+      const country = data.response[0].country;
+      document.getElementById("league-info").innerHTML = `
+        <img src="${league.logo}" alt="League Logo" />
+        <img src="${country.flag}" alt="Country Flag" />
+        <span>${league.name} (${country.name})</span>
+      `;
+    }
+
+    async function fetchMatches() {
+      const url = `https://v3.football.api-sports.io/fixtures?league=${LEAGUE_ID}&season=${SEASON}`;
+      const res = await fetch(url, { headers: { "x-apisports-key": API_KEY } });
+      const data = await res.json();
+      const container = document.getElementById("matches");
+      container.innerHTML = "";
+      const fixtures = data.response.slice(0, 20); // show 20 matches
+      fixtures.forEach(match => {
+        const home = match.teams.home.name;
+        const away = match.teams.away.name;
+        const date = new Date(match.fixture.date).toLocaleString();
+        const score = match.goals.home !== null ? `${match.goals.home} - ${match.goals.away}` : "vs";
+
+        const div = document.createElement("div");
+        div.className = "match";
+        div.innerHTML = `
+          <h3 class="teams">${home} ${score} ${away}</h3>
+          <p class="date">${date}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    fetchLeagueInfo();
+    fetchMatches();
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyBookList</title>
+  <style>
+#infi-list {
+  width: 200px;
+  height: 300px;
+  overflow: auto;
+
+  margin: 30px;
+  padding: 20px;
+  border: 10px solid black;
+}
+li {
+  padding: 10px;
+  list-style-type: none;
+}
+li:hover {
+  background: #ccc;
+}
+
+  </style>
+</head>
+ <body>
+    <h2>Infinite Scroll</h2>
+    <main>
+      <ol id="infi-list">
+		  
+	  </ol>
+    </main>
+    <!-- <script src="./script.js"></script> -->
+    <script>//your code here!
+    let ol = document.getElementById("infi-list");
+    function addItem(count) {
+      for (let i = 0; i < count; i++) {
+        let li = document.createElement("li");
+        li.textContent = "Item " + (ol.children.length + 1);
+        ol.appendChild(li);
+      }
+    }
+      addItem(10);
+    ol.addEventListener("scroll", () => {
+      if (ol.scrollTop + ol.clientHeight >= ol.scrollHeight) {
+        addItem(3); 
+      }
+    });
+  </script>
+</body>
+</html>

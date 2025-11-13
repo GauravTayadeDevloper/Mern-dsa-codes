@@ -1,0 +1,43 @@
+<!-- https://api.github.com/users/octocat -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <div id="main">
+        <input type="text" placeholder="Enter user name" id="name">
+        <button id="button">Show Git User</button>
+        <div  id="profile">
+
+        </div>
+    </div>
+    <script>
+
+        document.getElementById("button").addEventListener("click",(e)=>{
+         let userName =document.getElementById("name").value.trim();    
+        let profile = document.getElementById("profile")
+            e.preventDefault();
+            fetch(`https://api.github.com/users/${userName}`)
+            .then((user)=>{
+                return user.json();
+            }).then((userData)=>{
+                let name =document.createElement("h1");
+               profile.innerHTML=`<img src=${userData.avatar_url}/>`;
+                let follower=document.createElement("h3");
+                let prepo = document.createElement("h3");
+                name.textContent=userData.login;
+                 prepo.textContent=userData.public_repos;
+                follower.textContent=userData.followers;
+
+                profile.appendChild(name);
+                profile.appendChild(follower);
+                profile.appendChild(prepo);
+
+            })
+        })
+    </script>
+ </body>
+ </html>

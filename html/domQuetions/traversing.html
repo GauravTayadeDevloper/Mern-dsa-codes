@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="product-page">
+  $20
+  <div>
+    <div>$10</div>
+    <section>
+      <div>$5</div>
+    </section>
+  </div>
+  <p>
+    $15
+    <div>
+      $5
+      <div>
+        $2
+      </div>
+    </div>
+  </p>
+</div>
+<div id="div"></div>
+<script>
+    let pp = document.getElementById("product-page");
+    let d  = document.getElementById("div");
+    let a = pp.textContent;
+    let n= a.trim().split("\n").join("").split("$");
+    let sum=0;
+    for(let i =0;i<n.length;i++)
+    {
+        let g = n[i].toString().trim();
+        sum=sum+Number(g);
+    }
+    let p = document.createElement("p");
+    p.textContent=sum.toString();
+    div.appendChild(p);
+
+</script>
+</body>
+</html>

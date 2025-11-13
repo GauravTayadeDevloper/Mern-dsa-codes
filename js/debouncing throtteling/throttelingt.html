@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1> Throtteling </h1>
+</head>
+<body style="height: 5000px;">
+    <script>
+        function throttel(func, limit)
+            {
+                let inThrottel = false;
+                return function(...args)
+                {
+                    if(!inThrottel)
+                    {
+                        inThrottel = true
+                        func(...args);
+                        setTimeout(()=>{
+                            inThrottel= false
+                        },limit)
+                    }
+                }
+            }
+
+            function ShowScroll()
+            {
+                console.log("scrolling .....",new Date().toLocaleTimeString())
+            }
+
+            let throtteled = throttel(ShowScroll,1000);
+
+            window.addEventListener("scroll",throtteled);
+        
+    </script>
+</body>
+</html>

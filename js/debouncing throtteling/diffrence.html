@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div style="height: 5000px;">
+    
+    <h1 id="normal"></h1>
+    <h1 id="throttel"></h1>
+    <h1 id="debounce"></h1>
+</div>
+
+<script>
+    let normal = document.getElementById("normal");
+    let throttel = document.getElementById("throttel");
+    let debounce = document.getElementById("debounce");
+
+    let nC=0;
+    let tC=0;
+    let dC=0;
+
+    let isScrolling = true;
+
+    const normalCount = ()=>{
+        nC++;
+        normal.textContent = `Normal Count: ${nC}`;
+    };
+
+    function throttelCount()
+    {
+        if(isScrolling)
+    {
+        tC++;
+        throttel.textContent = `Throttal Count: ${tC}`;
+        isScrolling = false;
+        setTimeout(()=>{
+            isScrolling=true;
+        },1000)
+    }
+    }
+
+    let interval;
+    function debounceCount(){
+        clearTimeout(interval)
+        interval  = setTimeout(()=>{
+            dC++;
+            debounce.textContent=`Debounce Count: ${dC}`;
+        },1000)
+    }
+
+    let scrollHandler = ()=>{
+    normalCount();
+    throttelCount();
+    debounceCount();
+}
+
+window.addEventListener("scroll",scrollHandler);
+</script>
+</body>
+</html>

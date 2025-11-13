@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Class Example</title>
+</head>
+
+<body>
+    <script>
+        class product {
+            constructor(name, price, discount) {
+                this.name = name;
+                this.price = price;
+                this.discount = discount;
+            }
+            getpriceafterdiscount() {
+                return this.price - (this.price * this.discount / 100);
+            }
+            displayinfo() {
+                console.log("product:", this.name);
+                console.log("original price:", this.price);
+                console.log("discount:", this.discount + "%");
+                console.log("price after discount:", this.getpriceafterdiscount());
+            }
+        }
+        let p1 = new product("laptop", 60000, 10);
+        let p2 = new product("headphones", 2000, 20);
+        console.log(p1.name + " discounted price:", p1.getpriceafterdiscount());
+        console.log(p2.name + " discounted price:", p2.getpriceafterdiscount());
+        p1.displayinfo();
+        p2.displayinfo();
+    </script>
+</body>
+
+</html>

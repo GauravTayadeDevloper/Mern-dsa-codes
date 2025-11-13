@@ -1,0 +1,1115 @@
+{
+  "get": "players/profiles",
+  "parameters": {
+    "search": "top 50 football players"
+  },
+  "errors": [],
+  "results": 50,
+  "paging": {
+    "current": 1,
+    "total": 1
+  },
+  "response": [
+    {
+      "player": {
+        "id": 874,
+        "name": "Cristiano Ronaldo",
+        "firstname": "Cristiano Ronaldo",
+        "lastname": "dos Santos Aveiro",
+        "age": 40,
+        "birth": {
+          "date": "1985-02-05",
+          "place": "Funchal",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "187",
+        "weight": "83",
+        "number": 7,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/874.png"
+      }
+    },
+    {
+      "player": {
+        "id": 2533,
+        "name": "Lionel Messi",
+        "firstname": "Lionel",
+        "lastname": "Messi",
+        "age": 38,
+        "birth": {
+          "date": "1987-06-24",
+          "place": "Rosario",
+          "country": "Argentina"
+        },
+        "nationality": "Argentina",
+        "height": "170",
+        "weight": "72",
+        "number": 10,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/2533.png"
+      }
+    },
+    {
+      "player": {
+        "id": 664,
+        "name": "Kylian Mbappé",
+        "firstname": "Kylian",
+        "lastname": "Mbappé Lottin",
+        "age": 26,
+        "birth": {
+          "date": "1998-12-20",
+          "place": "Paris",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "178",
+        "weight": "73",
+        "number": 7,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/664.png"
+      }
+    },
+    {
+      "player": {
+        "id": 307,
+        "name": "Erling Haaland",
+        "firstname": "Erling",
+        "lastname": "Haaland",
+        "age": 25,
+        "birth": {
+          "date": "2000-07-21",
+          "place": "Leeds",
+          "country": "England"
+        },
+        "nationality": "Norway",
+        "height": "194",
+        "weight": "88",
+        "number": 9,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/307.png"
+      }
+    },
+    {
+      "player": {
+        "id": 197,
+        "name": "Kevin De Bruyne",
+        "firstname": "Kevin",
+        "lastname": "De Bruyne",
+        "age": 34,
+        "birth": {
+          "date": "1991-06-28",
+          "place": "Drongen",
+          "country": "Belgium"
+        },
+        "nationality": "Belgium",
+        "height": "181",
+        "weight": "70",
+        "number": 17,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/197.png"
+      }
+    },
+    {
+      "player": {
+        "id": 262,
+        "name": "Rodri",
+        "firstname": "Rodrigo",
+        "lastname": "Hernández Cascante",
+        "age": 29,
+        "birth": {
+          "date": "1996-06-22",
+          "place": "Madrid",
+          "country": "Spain"
+        },
+        "nationality": "Spain",
+        "height": "191",
+        "weight": "82",
+        "number": 16,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/262.png"
+      }
+    },
+    {
+      "player": {
+        "id": 302,
+        "name": "Vinícius Júnior",
+        "firstname": "Vinícius",
+        "lastname": "José Paixão de Oliveira Júnior",
+        "age": 24,
+        "birth": {
+          "date": "2000-07-12",
+          "place": "São Gonçalo",
+          "country": "Brazil"
+        },
+        "nationality": "Brazil",
+        "height": "176",
+        "weight": "73",
+        "number": 7,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/302.png"
+      }
+    },
+    {
+      "player": {
+        "id": 314,
+        "name": "Jude Bellingham",
+        "firstname": "Jude",
+        "lastname": "Bellingham",
+        "age": 22,
+        "birth": {
+          "date": "2003-06-29",
+          "place": "Stourbridge",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "186",
+        "weight": "75",
+        "number": 5,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/314.png"
+      }
+    },
+    {
+      "player": {
+        "id": 251,
+        "name": "Harry Kane",
+        "firstname": "Harry",
+        "lastname": "Kane",
+        "age": 32,
+        "birth": {
+          "date": "1993-07-28",
+          "place": "London",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "183",
+        "weight": "86",
+        "number": 9,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/251.png"
+      }
+    },
+    {
+      "player": {
+        "id": 276,
+        "name": "Mohamed Salah",
+        "firstname": "Mohamed",
+        "lastname": "Salah",
+        "age": 33,
+        "birth": {
+          "date": "1992-06-15",
+          "place": "Nagrig",
+          "country": "Egypt"
+        },
+        "nationality": "Egypt",
+        "height": "175",
+        "weight": "70",
+        "number": 11,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/276.png"
+      }
+    },
+    {
+      "player": {
+        "id": 244,
+        "name": "Virgil van Dijk",
+        "firstname": "Virgil",
+        "lastname": "van Dijk",
+        "age": 34,
+        "birth": {
+          "date": "1991-07-08",
+          "place": "Breda",
+          "country": "Netherlands"
+        },
+        "nationality": "Netherlands",
+        "height": "193",
+        "weight": "92",
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/244.png"
+      }
+    },
+    {
+      "player": {
+        "id": 315,
+        "name": "Jamal Musiala",
+        "firstname": "Jamal",
+        "lastname": "Musiala",
+        "age": 22,
+        "birth": {
+          "date": "2003-02-26",
+          "place": "Stuttgart",
+          "country": "Germany"
+        },
+        "nationality": "Germany",
+        "height": "183",
+        "weight": "67",
+        "number": 42,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/315.png"
+      }
+    },
+    {
+      "player": {
+        "id": 266,
+        "name": "Lamine Yamal",
+        "firstname": "Lamine",
+        "lastname": "Yamal Nasraoui Ebana",
+        "age": 17,
+        "birth": {
+          "date": "2007-07-13",
+          "place": "Mataró",
+          "country": "Spain"
+        },
+        "nationality": "Spain",
+        "height": "170",
+        "weight": "60",
+        "number": 19,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/266.png"
+      }
+    },
+    {
+      "player": {
+        "id": 331,
+        "name": "Bukayo Saka",
+        "firstname": "Bukayo",
+        "lastname": "Saka",
+        "age": 23,
+        "birth": {
+          "date": "2001-09-05",
+          "place": "London",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "178",
+        "weight": "65",
+        "number": 7,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/331.png"
+      }
+    },
+    {
+      "player": {
+        "id": 412,
+        "name": "William Saliba",
+        "firstname": "William",
+        "lastname": "Saliba",
+        "age": 24,
+        "birth": {
+          "date": "2001-03-24",
+          "place": "Bondy",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "192",
+        "weight": "80",
+        "number": 2,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/412.png"
+      }
+    },
+    {
+      "player": {
+        "id": 413,
+        "name": "Alexander Isak",
+        "firstname": "Alexander",
+        "lastname": "Isak",
+        "age": 25,
+        "birth": {
+          "date": "1999-09-21",
+          "place": "Solna",
+          "country": "Sweden"
+        },
+        "nationality": "Sweden",
+        "height": "192",
+        "weight": "76",
+        "number": 14,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/413.png"
+      }
+    },
+    {
+      "player": {
+        "id": 414,
+        "name": "Michael Olise",
+        "firstname": "Michael",
+        "lastname": "Olise",
+        "age": 23,
+        "birth": {
+          "date": "2001-12-12",
+          "place": "London",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "179",
+        "weight": "70",
+        "number": 7,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/414.png"
+      }
+    },
+    {
+      "player": {
+        "id": 415,
+        "name": "Florian Wirtz",
+        "firstname": "Florian",
+        "lastname": "Wirtz",
+        "age": 22,
+        "birth": {
+          "date": "2003-05-03",
+          "place": "Pulheim",
+          "country": "Germany"
+        },
+        "nationality": "Germany",
+        "height": "177",
+        "weight": "70",
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/415.png"
+      }
+    },
+    {
+      "player": {
+        "id": 416,
+        "name": "Nuno Mendes",
+        "firstname": "Nuno",
+        "lastname": "Alexandre Tavares Mendes",
+        "age": 23,
+        "birth": {
+          "date": "2002-06-19",
+          "place": "Sintra",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "184",
+        "weight": "81",
+        "number": 25,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/416.png"
+      }
+    },
+    {
+      "player": {
+        "id": 417,
+        "name": "Alisson Becker",
+        "firstname": "Alisson",
+        "lastname": "Ramses Becker",
+        "age": 32,
+        "birth": {
+          "date": "1992-10-02",
+          "place": "Novo Hamburgo",
+          "country": "Brazil"
+        },
+        "nationality": "Brazil",
+        "height": "191",
+        "weight": "91",
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/417.png"
+      }
+    },
+    {
+      "player": {
+        "id": 418,
+        "name": "Khvicha Kvaratskhelia",
+        "firstname": "Khvicha",
+        "lastname": "Kvaratskhelia",
+        "age": 24,
+        "birth": {
+          "date": "2001-02-12",
+          "place": "Rustavi",
+          "country": "Georgia"
+        },
+        "nationality": "Georgia",
+        "height": "182",
+        "weight": "70",
+        "number": 77,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/418.png"
+      }
+    },
+    {
+      "player": {
+        "id": 419,
+        "name": "Cole Palmer",
+        "firstname": "Cole",
+        "lastname": "Palmer",
+        "age": 23,
+        "birth": {
+          "date": "2002-05-06",
+          "place": "Manchester",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "183",
+        "weight": "70",
+        "number": 20,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/419.png"
+      }
+    },
+    {
+      "player": {
+        "id": 420,
+        "name": "Son Heung-Min",
+        "firstname": "Son",
+        "lastname": "Heung-Min",
+        "age": 33,
+        "birth": {
+          "date": "1992-07-08",
+          "place": "Gangneung",
+          "country": "South Korea"
+        },
+        "nationality": "South Korea",
+        "height": "183",
+        "weight": "78",
+        "number": 7,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/420.png"
+      }
+    },
+    {
+      "player": {
+        "id": 421,
+        "name": "Trent Alexander-Arnold",
+        "firstname": "Trent",
+        "lastname": "Alexander-Arnold",
+        "age": 27,
+        "birth": {
+          "date": "1998-10-07",
+          "place": "Liverpool",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "180",
+        "weight": "69",
+        "number": 66,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/421.png"
+      }
+    },
+    {
+      "player": {
+        "id": 422,
+        "name": "Ousmane Dembélé",
+        "firstname": "Ousmane",
+        "lastname": "Dembélé",
+        "age": 28,
+        "birth": {
+          "date": "1997-05-15",
+          "place": "Vernon",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "178",
+        "weight": "67",
+        "number": 10,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/422.png"
+      }
+    },
+    {
+      "player": {
+        "id": 423,
+        "name": "Achraf Hakimi",
+        "firstname": "Achraf",
+        "lastname": "Hakimi Mouh",
+        "age": 27,
+        "birth": {
+          "date": "1998-11-04",
+          "place": "Madrid",
+          "country": "Morocco"
+        },
+        "nationality": "Morocco",
+        "height": "179",
+        "weight": "73",
+        "number": 2,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/423.png"
+      }
+    },
+    {
+      "player": {
+        "id": 424,
+        "name": "Lautaro Martínez",
+        "firstname": "Lautaro",
+        "lastname": "Javier Martínez",
+        "age": 28,
+        "birth": {
+          "date": "1997-08-22",
+          "place": "Bahía Blanca",
+          "country": "Argentina"
+        },
+        "nationality": "Argentina",
+        "height": "174",
+        "weight": "72",
+        "number": 10,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/424.png"
+      }
+    },
+    {
+      "player": {
+        "id": 425,
+        "name": "Rúben Dias",
+        "firstname": "Rúben",
+        "lastname": "Dias",
+        "age": 28,
+        "birth": {
+          "date": "1997-10-14",
+          "place": "Amadora",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "187",
+        "weight": "80",
+        "number": 3,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/425.png"
+      }
+    },
+    {
+      "player": {
+        "id": 426,
+        "name": "Pedri",
+        "firstname": "Pedro",
+        "lastname": "González López",
+        "age": 22,
+        "birth": {
+          "date": "2002-11-25",
+          "place": "Tegueste",
+          "country": "Spain"
+        },
+        "nationality": "Spain",
+        "height": "174",
+        "weight": "60",
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/426.png"
+      }
+    },
+    {
+      "player": {
+        "id": 427,
+        "name": "Aurélien Tchouaméni",
+        "firstname": "Aurélien",
+        "lastname": "Tchouaméni",
+        "age": 25,
+        "birth": {
+          "date": "2000-01-27",
+          "place": "Rouen",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "187",
+        "weight": "75",
+        "number": 14,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/427.png"
+      }
+    },
+    {
+      "player": {
+        "id": 428,
+        "name": "Rafael Leão",
+        "firstname": "Rafael",
+        "lastname": "Leão",
+        "age": 26,
+        "birth": {
+          "date": "1999-06-10",
+          "place": "Dili",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "188",
+        "weight": "81",
+        "number": 17,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/428.png"
+      }
+    },
+    {
+      "player": {
+        "id": 429,
+        "name": "Victor Osimhen",
+        "firstname": "Victor",
+        "lastname": "James Osimhen",
+        "age": 26,
+        "birth": {
+          "date": "1998-12-29",
+          "place": "Lagos",
+          "country": "Nigeria"
+        },
+        "nationality": "Nigeria",
+        "height": "186",
+        "weight": "77",
+        "number": 9,
+        "position": "Forward",
+        "photo": "https://media.api-sports.io/football/players/429.png"
+      }
+    },
+    {
+      "player": {
+        "id": 430,
+        "name": "Bruno Fernandes",
+        "firstname": "Bruno",
+        "lastname": "Miguel Borges Fernandes",
+        "age": 31,
+        "birth": {
+          "date": "1994-09-08",
+          "place": "Maia",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "179",
+        "weight": "69",
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/430.png"
+      }
+    },
+    {
+      "player": {
+        "id": 431,
+        "name": "Martin Ødegaard",
+        "firstname": "Martin",
+        "lastname": "Ødegaard",
+        "age": 26,
+        "birth": {
+          "date": "1998-12-17",
+          "place": "Drammen",
+          "country": "Norway"
+        },
+        "nationality": "Norway",
+        "height": "178",
+        "weight": "68",
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/431.png"
+      }
+    },
+    {
+      "player": {
+        "id": 432,
+        "name": "Declan Rice",
+        "firstname": "Declan",
+        "lastname": "Rice",
+        "age": 26,
+        "birth": {
+          "date": "1999-01-14",
+          "place": "Kingston upon Thames",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "188",
+        "weight": "75",
+        "number": 41,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/432.png"
+      }
+    },
+    {
+      "player": {
+        "id": 433,
+        "name": "Theo Hernández",
+        "firstname": "Theo",
+        "lastname": "Bernard François Hernández",
+        "age": 27,
+        "birth": {
+          "date": "1997-10-06",
+          "place": "Marseille",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "184",
+        "weight": "80",
+        "number": 22,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/433.png"
+      }
+    },
+    {
+      "player": {
+        "id": 434,
+        "name": "Kim Min-jae",
+        "firstname": "Kim",
+        "lastname": "Min-jae",
+        "age": 28,
+        "birth": {
+          "date": "1996-11-23",
+          "place": "Tongyeong",
+          "country": "South Korea"
+        },
+        "nationality": "South Korea",
+        "height": "190",
+        "weight": "80",
+        "number": 25,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/434.png"
+      }
+    },
+    {
+      "player": {
+        "id": 435,
+        "name": "Ederson",
+        "firstname": "Ederson",
+        "lastname": "Santana de Moraes",
+        "age": 32,
+        "birth": {
+          "date": "1993-08-19",
+          "place": "Osasco",
+          "country": "Brazil"
+        },
+        "nationality": "Brazil",
+        "height": "188",
+        "weight": "80",
+        "number": 31,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/435.png"
+      }
+    },
+    {
+      "player": {
+        "id": 436,
+        "name": "Gregor Kobel",
+        "firstname": "Gregor",
+        "lastname": "Kobel",
+        "age": 27,
+        "birth": {
+          "date": "1997-12-06",
+          "place": "Winterthur",
+          "country": "Switzerland"
+        },
+        "nationality": "Switzerland",
+        "height": "194",
+        "weight": "81",
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/436.png"
+      }
+    },
+    {
+      "player": {
+        "id": 437,
+        "name": "Gianluigi Donnarumma",
+        "firstname": "Gianluigi",
+        "lastname": "Donnarumma",
+        "age": 26,
+        "birth": {
+          "date": "1999-02-25",
+          "place": "Castellammare di Stabia",
+          "country": "Italy"
+        },
+        "nationality": "Italy",
+        "height": "196",
+        "weight": "82",
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/437.png"
+      }
+    },
+    {
+      "player": {
+        "id": 438,
+        "name": "Mike Maignan",
+        "firstname": "Mike",
+        "lastname": "Maignan",
+        "age": 29,
+        "birth": {
+          "date": "1995-07-03",
+          "place": "Cayenne",
+          "country": "France"
+        },
+        "nationality": "France",
+        "height": "191",
+        "weight": "82",
+        "number": 16,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/438.png"
+      }
+    },
+    {
+      "player": {
+        "id": 439,
+        "name": "Emiliano Martínez",
+        "firstname": "Emiliano",
+        "lastname": "Martínez",
+        "age": 32,
+        "birth": {
+          "date": "1992-09-02",
+          "place": "Mar del Plata",
+          "country": "Argentina"
+        },
+        "nationality": "Argentina",
+        "height": "195",
+        "weight": "86",
+        "number": 26,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/439.png"
+      }
+    },
+    {
+      "player": {
+        "id": 440,
+        "name": "Josko Gvardiol",
+        "firstname": "Joško",
+        "lastname": "Gvardiol",
+        "age": 23,
+        "birth": {
+          "date": "2002-01-23",
+          "place": "Zagreb",
+          "country": "Croatia"
+        },
+        "nationality": "Croatia",
+        "height": "187",
+        "weight": "80",
+        "number": 24,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/440.png"
+      }
+    },
+    {
+      "player": {
+        "id": 441,
+        "name": "Éder Militão",
+        "firstname": "Éder",
+        "lastname": "Gabriel Militão",
+        "age": 27,
+        "birth": {
+          "date": "1998-01-18",
+          "place": "Serra Kepler",
+          "country": "Brazil"
+        },
+        "nationality": "Brazil",
+        "height": "183",
+        "weight": "75",
+        "number": 3,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/441.png"
+      }
+    },
+    {
+      "player": {
+        "id": 442,
+        "name": "Alessandro Bastoni",
+        "firstname": "Alessandro",
+        "lastname": "Bastoni",
+        "age": 26,
+        "birth": {
+          "date": "1999-04-13",
+          "place": "Cremona",
+          "country": "Italy"
+        },
+        "nationality": "Italy",
+        "height": "190",
+        "weight": "81",
+        "number": 95,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/442.png"
+      }
+    },
+    {
+      "player": {
+        "id": 443,
+        "name": "António Silva",
+        "firstname": "António",
+        "lastname": "Tomás Silva",
+        "age": 21,
+        "birth": {
+          "date": "2003-10-30",
+          "place": "Vila Franca de Xira",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "187",
+        "weight": "74",
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/443.png"
+      }
+    },
+    {
+      "player": {
+        "id": 444,
+        "name": "Ronald Araujo",
+        "firstname": "Ronald",
+        "lastname": "Federico Aráujo da Silva",
+        "age": 26,
+        "birth": {
+          "date": "1999-01-07",
+          "place": "Rivera",
+          "country": "Uruguay"
+        },
+        "nationality": "Uruguay",
+        "height": "188",
+        "weight": "80",
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/444.png"
+      }
+    },
+    {
+      "player": {
+        "id": 445,
+        "name": "Frenkie de Jong",
+        "firstname": "Frenkie",
+        "lastname": "de Jong",
+        "age": 28,
+        "birth": {
+          "date": "1997-05-12",
+          "place": "Arkel",
+          "country": "Netherlands"
+        },
+        "nationality": "Netherlands",
+        "height": "180",
+        "weight": "72",
+        "number": 21,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/445.png"
+      }
+    },
+    {
+      "player": {
+        "id": 446,
+        "name": "Toni Kroos",
+        "firstname": "Toni",
+        "lastname": "Kroos",
+        "age": 35,
+        "birth": {
+          "date": "1990-01-04",
+          "place": "Greifswald",
+          "country": "Germany"
+        },
+        "nationality": "Germany",
+        "height": "183",
+        "weight": "76",
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/446.png"
+      }
+    },
+    {
+      "player": {
+        "id": 447,
+        "name": "Bernardo Silva",
+        "firstname": "Bernardo",
+        "lastname": "Mota Veiga de Carvalho e Silva",
+        "age": 31,
+        "birth": {
+          "date": "1994-08-10",
+          "place": "Lisboa",
+          "country": "Portugal"
+        },
+        "nationality": "Portugal",
+        "height": "173",
+        "weight": "64",
+        "number": 20,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/447.png"
+      }
+    },
+    {
+      "player": {
+        "id": 448,
+        "name": "Ilkay Gündogan",
+        "firstname": "Ilkay",
+        "lastname": "Gündoğan",
+        "age": 34,
+        "birth": {
+          "date": "1990-10-24",
+          "place": "Gelsenkirchen",
+          "country": "Germany"
+        },
+        "nationality": "Germany",
+        "height": "180",
+        "weight": "70",
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/448.png"
+      }
+    },
+    {
+      "player": {
+        "id": 449,
+        "name": "Hakan Çalhanoğlu",
+        "firstname": "Hakan",
+        "lastname": "Çalhanoğlu",
+        "age": 31,
+        "birth": {
+          "date": "1993-02-08",
+          "place": "Mannheim",
+          "country": "Turkey"
+        },
+        "nationality": "Turkey",
+        "height": "178",
+        "weight": "74",
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/449.png"
+      }
+    },
+    {
+      "player": {
+        "id": 450,
+        "name": "Luka Modrić",
+        "firstname": "Luka",
+        "lastname": "Modrić",
+        "age": 40,
+        "birth": {
+          "date": "1985-09-09",
+          "place": "Zadar",
+          "country": "Croatia"
+        },
+        "nationality": "Croatia",
+        "height": "172",
+        "weight": "66",
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/450.png"
+      }
+    },
+    {
+      "player": {
+        "id": 451,
+        "name": "Phil Foden",
+        "firstname": "Phil",
+        "lastname": "Foden",
+        "age": 25,
+        "birth": {
+          "date": "2000-05-28",
+          "place": "Stockport",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "171",
+        "weight": "70",
+        "number": 47,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/451.png"
+      }
+    },
+    {
+      "player": {
+        "id": 452,
+        "name": "Florian Wirtz",
+        "firstname": "Florian",
+        "lastname": "Wirtz",
+        "age": 22,
+        "birth": {
+          "date": "2003-05-03",
+          "place": "Pulheim",
+          "country": "Germany"
+        },
+        "nationality": "Germany",
+        "height": "177",
+        "weight": "70",
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/415.png"
+      }
+    }
+  ]
+}
+

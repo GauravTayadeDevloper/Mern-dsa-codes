@@ -1,0 +1,26 @@
+<!DOCTYPEhtml>
+
+<html>
+
+<head>
+</head>
+
+<body>
+<p id="timer"></p>
+    <script >
+
+let p = document.getElementById("timer");
+setInterval(() => {
+let d = new Date();
+let day =d.getDate();
+let month = d.getMonth()+1;
+let year =d.getFullYear();
+let time =d.toLocaleTimeString();
+p.textContent=`${day}/${month}/${year}, ${time}`;
+}, 1000);
+
+</script>
+
+</body>
+
+</html>

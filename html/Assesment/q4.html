@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Traversal</title>
+  <style>
+    div {
+      padding: 20px;
+      border: 1px solid black;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="out">
+    outer div
+    <div id="middle">
+      middle Div
+      <div id="inner">inner Div</div>
+    </div>
+    <div id="sibling">sibling Div</div>
+  </div>
+
+  <script>
+    let out = document.getElementById("out");
+    console.log("First Element Child of out:", out.firstElementChild);
+    let inner = document.getElementById("inner");
+    console.log("Parent of inner:", inner.parentElement);
+    let middle = document.getElementById("middle");
+    middle.nextElementSibling.style.backgroundColor = "blue";
+  </script>
+</body>
+</html>

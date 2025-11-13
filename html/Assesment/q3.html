@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <form id="form">
+        <input placeholder="enter name" type="text" id="name"/>
+        <input placeholder="enter email" type="email" id="email"/>
+         <button type="submit">Submit</button>
+    </form>
+    <div id="data">
+
+    </div>
+
+    <script>
+        let form = document.getElementById("form");
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let op = document.getElementById("data");
+        form.addEventListener('input',()=>{
+            op.innerHTML=
+            `<p>User name is =<strong>
+            ${name.value}</strong></p>
+             <p>User Email is =<strong>${email.value} </strong></p>   
+            `;
+        });
+
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let userData ={
+                name : name.value,
+                email: email.value
+            }
+            localStorage.setItem('user',JSON.stringify(userData));
+            
+        })
+
+
+    </script>
+</body>
+</html>
