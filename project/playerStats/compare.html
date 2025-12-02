@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Compare Players</title>
+    <link rel="stylesheet" href="compare.css" />
+</head>
+
+<body>
+    <header id="header">
+        <h1>StatSphere</h1>
+    </header>
+
+    <main id="main-content">
+        <nav id="navBar">
+            <button class="btn" onclick="window.location.href='index.html'"
+                style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+                Home
+            </button>
+
+            <button onclick="window.location.href='displayAll.html'"
+                style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+                Display All Players
+            </button>
+        </nav>
+
+        <h2>Compare Players</h2>
+
+        <select id="player1"></select>
+        <select id="player2"></select>
+        <button onclick="comparePlayers()">Compare</button>
+
+        <div id="compare-result" class="compare-box"></div>
+
+        <a href="index.html" style="margin-top:20px; text-decoration:none;">🔙 Back to Home</a>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; StatSphere Developed By Gaurav & Kiran</p>
+    </footer>
+    <script>
+        let allPlayers = [];
+
+        async function loadPlayers() {
+            let res = await fetch("playersStats.json");
+            let data = await res.json();
+            allPlayers = data.response;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const autoPlayer1 = urlParams.get("player1");
+
+            const p1 = document.getElementById("player1");
+            const p2 = document.getElementById("player2");
+
+            allPlayers.forEach(p => {
+                const opt1 = new Option(p.player.name, p.player.name);
+                const opt2 = new Option(p.player.name, p.player.name);
+                p1.add(opt1);
+                p2.add(opt2);
+            });
+
+            // Auto select Player 1 sent from page 1
+            if (autoPlayer1) {
+                p1.value = autoPlayer1;
+            }
+        }
+        loadPlayers();
+
+        function getPlayer(name) {
+            return allPlayers.find(p => p.player.name === name);
+        }
+
+        function highlight(a, b) {
+            if (a > b) return ["better", ""];
+            if (b > a) return ["", "better"];
+            return ["", ""];
+        }
+
+        function comparePlayers() {
+            const name1 = document.getElementById("player1").value;
+            const name2 = document.getElementById("player2").value;
+
+            if (name1 === name2) {
+                document.getElementById("compare-result").innerHTML =
+                    "<p>Please select two different players.</p>";
+                return;
+            }
+
+            const p1 = getPlayer(name1);
+            const p2 = getPlayer(name2);
+
+            const s1 = p1.statistics[0];
+            const s2 = p2.statistics[0];
+
+            function row(label, a, b) {
+                const [c1, c2] = highlight(a, b);
+                return `
+      <tr>
+        <td>${label}</td>
+        <td class="${c1}">${a}</td>
+        <td class="${c2}">${b}</td>
+      </tr>
+    `;
+            }
+
+            document.getElementById("compare-result").innerHTML = `
+    <div style="display:flex; justify-content:space-around; margin-bottom:15px;">
+      <div>
+        <img src="${p1.player.photo}" class="player-photo"><br>
+        <b>${p1.player.name}</b>
+      </div>
+      <div>
+        <img src="${p2.player.photo}" class="player-photo"><br>
+        <b>${p2.player.name}</b>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <tr>
+        <th>Stat</th>
+        <th>${name1}</th>
+        <th>${name2}</th>
+      </tr>
+      ${row("Goals", s1.goals.total, s2.goals.total)}
+      ${row("Assists", s1.goals.assists, s2.goals.assists)}
+      ${row("Rating", parseFloat(s1.games.rating), parseFloat(s2.games.rating))}
+      ${row("Shots", s1.shots.total, s2.shots.total)}
+      ${row("Passes", s1.passes.total, s2.passes.total)}
+      ${row("Dribbles", s1.dribbles.success, s2.dribbles.success)}
+      ${row("Tackles", s1.tackles.total, s2.tackles.total)}
+      ${row("Minutes", s1.games.minutes, s2.games.minutes)}
+      ${row("Yellow Cards", s1.cards.yellow, s2.cards.yellow)}
+      ${row("Red Cards", s1.cards.red, s2.cards.red)}
+    </table>
+  `;
+        }
+    </script>
+
+</body>
+
+</html>

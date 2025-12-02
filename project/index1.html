@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Players Search & Compare</title>
+
+  <style>
+body {
+  font-family: Arial;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Center search input + button */
+.search-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#search {
+  padding: 8px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Center player card */
+#player-card {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 350px;
+  background: white;
+  text-align: center;
+}
+
+/* Player image */
+#player-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Show More box */
+#details {
+  display: none;
+  margin-top: 15px;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Inline compare box */
+#inline-compare-box {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  background: #f9f9f9;
+  width: 350px;
+  text-align: center;
+}
+
+/* Center select box */
+#inline-compare-select,
+#player1,
+#player2 {
+  padding: 8px;
+  width: 200px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Big compare section */
+.compare-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 900px;
+  background: #fff;
+}
+
+/* Comparison table */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.better {
+  background: #c6f6c6;
+  font-weight: bold;
+}
+
+.player-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+/* Center the two comparison player headers */
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  text-align: center;
+}
+  </style>
+</head>
+
+<body>
+
+  <h2>Search Player</h2>
+
+  <input type="text" id="search" placeholder="Type player name..." />
+  <button onclick="searchPlayer()">Search</button>
+
+  <div id="player-card"></div>
+
+  <!-- Inline Compare (inside the card) -->
+  <div id="inline-compare-box">
+    <h4>Compare This Player To:</h4>
+    <select id="inline-compare-select"></select>
+    <button onclick="inlineCompare()">Compare Now</button>
+    <div id="inline-compare-result"></div>
+  </div>
+
+  <!-- SEPARATE FULL COMPARE SECTION -->
+  <h2 style="margin-top:40px;">Full Compare Section</h2>
+
+  <select id="player1"></select>
+  <select id="player2"></select>
+  <button onclick="comparePlayers()">Compare</button>
+
+  <div id="compare-result" class="compare-box"></div>
+
+
+  <script>
+    let allPlayers = [];
+    let currentPlayer = null;
+
+    // Load JSON once
+    async function loadPlayers() {
+      let res = await fetch("playersStats.json");
+      let data = await res.json();
+      allPlayers = data.response;
+
+      // Fill full compare section dropdowns
+      let p1 = document.getElementById("player1");
+      let p2 = document.getElementById("player2");
+      let inlineSelect = document.getElementById("inline-compare-select");
+
+      allPlayers.forEach(p => {
+        let o1 = new Option(p.player.name, p.player.name);
+        let o2 = new Option(p.player.name, p.player.name);
+        let o3 = new Option(p.player.name, p.player.name);
+
+        p1.add(o1);
+        p2.add(o2);
+        inlineSelect.add(o3);
+      });
+    }
+
+    // ---------------- Search + Card ----------------
+    function searchPlayer() {
+      let name = document.getElementById("search").value.trim().toLowerCase();
+      let card = document.getElementById("player-card");
+      card.innerHTML = "";
+      document.getElementById("inline-compare-box").style.display = "none";
+
+      if (!name) {
+        card.innerHTML = "<p>Please enter a name.</p>";
+        return;
+      }
+
+      currentPlayer = allPlayers.find(p =>
+        p.player.name.toLowerCase().includes(name)
+      );
+
+      if (!currentPlayer) {
+        card.innerHTML = "<p>No player found.</p>";
+        return;
+      }
+
+      const p = currentPlayer.player;
+      const s = currentPlayer.statistics[0];
+
+      card.innerHTML = `
+        <img src="${p.photo}">
+        <h3>${p.name}</h3>
+        <p><b>Team:</b> ${s.team.name}</p>
+        <p><b>League:</b> ${s.league.name}</p>
+        <p><b>Goals:</b> ${s.goals.total} | <b>Assists:</b> ${s.goals.assists}</p>
+
+        <button onclick="toggleDetails()">Show More</button>
+
+        <div id="details">
+          <h4>Full Stats</h4>
+          <p><b>Position:</b> ${s.games.position}</p>
+          <p><b>Appearances:</b> ${s.games.appearences}</p>
+          <p><b>Minutes:</b> ${s.games.minutes}</p>
+          <p><b>Rating:</b> ${s.games.rating}</p>
+          <hr>
+          <button onclick="openInlineCompare()">Compare This Player</button>
+        </div>
+      `;
+    }
+
+    function toggleDetails() {
+      const d = document.getElementById("details");
+      const btn = d.previousElementSibling;
+
+      if (d.style.display === "none") {
+        d.style.display = "block";
+        btn.innerText = "Show Less";
+      } else {
+        d.style.display = "none";
+        btn.innerText = "Show More";
+      }
+    }
+
+    // Show compare box inside card
+    function openInlineCompare() {
+      document.getElementById("inline-compare-box").style.display = "block";
+    }
+
+    // ---------------- Inline Compare (From Card) ----------------
+    function inlineCompare() {
+      const second = document.getElementById("inline-compare-select").value;
+      compareTwo(currentPlayer.player.name, second, "inline-compare-result");
+    }
+
+    // ---------------- FULL Compare Section ----------------
+    function comparePlayers() {
+      const p1 = document.getElementById("player1").value;
+      const p2 = document.getElementById("player2").value;
+      compareTwo(p1, p2, "compare-result");
+    }
+
+    // ---------------- Shared Compare Logic ----------------
+    function getPlayer(name) {
+      return allPlayers.find(x => x.player.name === name);
+    }
+
+    function highlight(a, b) {
+      if (a > b) return ["better", ""];
+      if (b > a) return ["", "better"];
+      return ["", ""];
+    }
+
+    function compareTwo(name1, name2, elementId) {
+      if (name1 === name2) {
+        document.getElementById(elementId).innerHTML =
+          "<p>Please choose two different players.</p>";
+        return;
+      }
+
+      let p1 = getPlayer(name1);
+      let p2 = getPlayer(name2);
+      let s1 = p1.statistics[0];
+      let s2 = p2.statistics[0];
+
+      function row(label, a, b) {
+        let [c1, c2] = highlight(a, b);
+        return `
+          <tr>
+            <td>${label}</td>
+            <td class="${c1}">${a}</td>
+            <td class="${c2}">${b}</td>
+          </tr>`;
+      }
+
+      document.getElementById(elementId).innerHTML = `
+        <div class="player-header">
+          <div style="text-align:center">
+            <img src="${p1.player.photo}" class="player-photo"><br>
+            <b>${p1.player.name}</b>
+          </div>
+
+          <div style="text-align:center">
+            <img src="${p2.player.photo}" class="player-photo"><br>
+            <b>${p2.player.name}</b>
+          </div>
+        </div>
+
+        <table class="compare-table">
+          <tr><th>Stat</th><th>${name1}</th><th>${name2}</th></tr>
+
+          ${row("Goals", s1.goals.total, s2.goals.total)}
+          ${row("Assists", s1.goals.assists, s2.goals.assists)}
+          ${row("Rating", parseFloat(s1.games.rating), parseFloat(s2.games.rating))}
+          ${row("Shots (total)", s1.shots.total, s2.shots.total)}
+          ${row("Shots on target", s1.shots.on, s2.shots.on)}
+          ${row("Passes", s1.passes.total, s2.passes.total)}
+          ${row("Key passes", s1.passes.key, s2.passes.key)}
+          ${row("Dribbles attempts", s1.dribbles.attempts, s2.dribbles.attempts)}
+          ${row("Dribbles success", s1.dribbles.success, s2.dribbles.success)}
+          ${row("Tackles", s1.tackles.total, s2.tackles.total)}
+          ${row("Duels won", s1.duels.won, s2.duels.won)}
+          ${row("Minutes played", s1.games.minutes, s2.games.minutes)}
+          ${row("Yellow cards", s1.cards.yellow, s2.cards.yellow)}
+          ${row("Red cards", s1.cards.red, s2.cards.red)}
+        </table>
+      `;
+    }
+
+    loadPlayers();
+  </script>
+
+</body>
+</html>

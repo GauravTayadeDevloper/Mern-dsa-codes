@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Player Search</title>
+    <link rel="stylesheet" href="index.css" />
+
+</head>
+
+<body>
+    <header id="header">
+        <h1>StatSphere</h1>
+    </header>
+
+    <main id="main-content">
+
+        <nav id="navBar">
+            <button onclick="window.location.href='compare.html'"
+                style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+                Go to Compare Page
+            </button>
+
+            <button onclick="window.location.href='displayAll.html'"
+                style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+                Display All Players
+            </button>
+        </nav>
+
+        <h2>Search Player</h2>
+
+        <div class="search-box">
+            <input id="search" type="text" placeholder="Search player name..."
+                style="padding:8px; width:220px; border-radius:6px;">
+            <button onclick="searchPlayer()">Search</button>
+        </div>
+
+        <div id="player-card"></div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; StatSphere Developed By Gaurav & Kiran</p>
+    </footer>
+
+    <script>
+        let allPlayers = [];
+
+        async function loadPlayers() {
+            let res = await fetch("playersStats.json");
+            let data = await res.json();
+            allPlayers = data.response;
+        }
+
+        function searchPlayer() {
+            let name = document.getElementById("search").value.trim().toLowerCase();
+            let card = document.getElementById("player-card");
+            card.innerHTML = "";
+
+            if (name === "") {
+                card.innerHTML = "<p>Please enter a name.</p>";
+                return;
+            }
+
+            let playerObj = allPlayers.find(p =>
+                p.player.name.toLowerCase().includes(name)
+            );
+
+            if (!playerObj) {
+                card.innerHTML = "<p>No player found.</p>";
+                return;
+            }
+
+            const p = playerObj.player;
+            const stats = playerObj.statistics[0];
+
+            // BASIC CARD + SHOW MORE BUTTON
+            card.innerHTML = `
+        <img src="${p.photo}">
+        <h3>${p.name}</h3>
+        <p><b>Team:</b> ${stats.team.name}</p>
+        <p><b>League:</b> ${stats.league.name}</p>
+        <p><b>Goals:</b> ${stats.goals.total} | <b>Assists:</b> ${stats.goals.assists}</p>
+        <button onclick="toggleDetails()">Show More</button>
+
+        <div id="details">
+          <h4>Full Stats</h4>
+          <p><b>Position:</b> ${stats.games.position}</p>
+          <p><b>Appearances:</b> ${stats.games.appearences}</p>
+          <p><b>Minutes:</b> ${stats.games.minutes}</p>
+          <p><b>Rating:</b> ${stats.games.rating}</p>
+          <hr>
+          <p><b>Shots:</b> ${stats.shots.total} (On Target: ${stats.shots.on})</p>
+          <p><b>Passes:</b> ${stats.passes.total} (Key: ${stats.passes.key})</p>
+          <p><b>Accuracy:</b> ${stats.passes.accuracy}%</p>
+          <hr>
+          <p><b>Dribbles:</b> ${stats.dribbles.attempts} (Success: ${stats.dribbles.success})</p>
+          <p><b>Tackles:</b> ${stats.tackles.total}</p>
+          <p><b>Duels Won:</b> ${stats.duels.won}</p>
+          <hr>
+          <p><b>Yellow Cards:</b> ${stats.cards.yellow}</p>
+          <p><b>Red Cards:</b> ${stats.cards.red}</p>
+          <hr>
+          <p><b>Penalties Scored:</b> ${stats.penalty.scored}</p>
+          <p><b>Penalties Missed:</b> ${stats.penalty.missed}</p>
+     <button onclick="goToCompare('${p.name}')">Compare This Player</button>
+        </div>
+      `;
+        }
+
+        function toggleDetails() {
+            const details = document.getElementById("details");
+            const button = details.previousElementSibling;
+
+            if (details.style.display === "none") {
+                details.style.display = "block";
+                button.innerText = "Show Less";
+            } else {
+                details.style.display = "none";
+                button.innerText = "Show More";
+            }
+        }
+
+        loadPlayers();
+
+
+
+
+        function toggleDetails() {
+            const d = document.getElementById("details");
+            d.style.display = d.style.display === "none" ? "block" : "none";
+        }
+
+        function goToCompare(name) {
+            // Pass selected player name to compare page
+            window.location.href = "compare.html?player1=" + encodeURIComponent(name);
+        }
+    </script>
+
+</body>
+
+</html>

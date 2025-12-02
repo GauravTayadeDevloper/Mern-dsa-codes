@@ -37,12 +37,20 @@
         // div.removeAttribute("class")
         let div1 = document.createElement("div");
         div1.innerHTML="div element <strong> gaurav </strong>";
-        div1.setAttribute("class",divclass);
+        div1.setAttribute("class","divclass");
         let para = document.createElement("p");
         let p = div1.getAttribute("class");
         para.textContent=p.toString();
         div1.appendChild(para);
         div.appendChild(div1);
+        let btn = document.createElement("button");
+        btn.textContent="click";
+        div1.appendChild(btn);
+        btn.addEventListener("click",(e)=>{
+            e.preventDefault();
+            let parent  = btn.parentElement;
+            console.log(parent);
+        })
 
     </script>
 </body>

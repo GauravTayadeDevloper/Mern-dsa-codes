@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Player Data</title>
+  <link rel="stylesheet" href="display.css" />
+
+</head>
+
+<body>
+
+  <header id="header">
+    <h1>StatSphere</h1>
+  </header>
+
+  <main id="main-content">
+
+    <nav id="navBar">
+      <button onclick="window.location.href='compare.html'"
+        style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+        Go to Compare Page
+      </button>
+
+      <button onclick="window.location.href='index.html'"
+        style="margin-top:15px; padding:8px 15px; background:black; color:white; border:none; border-radius:6px; cursor:pointer;">
+        Home
+      </button>
+    </nav>
+
+    <h2>Top 50 Players</h2>
+
+    <div id="players"></div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; StatSphere Developed By Gaurav & Kiran</p>
+  </footer>
+  <script>
+    async function playerStats() {
+      try {
+        let res = await fetch("playersStats.json");
+        let data = await res.json();   // convert to JSON
+
+        console.log(data); // full JSON
+
+        const playersDiv = document.getElementById("players");
+
+        data.response.forEach(playerObj => {
+          const p = playerObj.player;
+          const stats = playerObj.statistics[0];
+
+          // create player card
+          const card = `
+            <div class="card">
+              <img src="${p.photo}" alt="${p.name}">
+              <h3>${p.name}</h3>
+              <p><b>Team:</b> ${stats.team.name}</p>
+              <p><b>League:</b> ${stats.league.name}</p>
+              <p><b>Goals:</b> ${stats.goals.total}</p>
+              <p><b>Assists:</b> ${stats.goals.assists}</p>
+              <p><b>Rating:</b> ${stats.games.rating}</p>
+            </div>
+          `;
+
+          playersDiv.innerHTML += card;
+        });
+
+      }
+      catch (err) {
+        console.log("Error loading JSON:", err);
+      }
+    }
+
+    playerStats();
+  </script>
+
+</body>
+
+</html>

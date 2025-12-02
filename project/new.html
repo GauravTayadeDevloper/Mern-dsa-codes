@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Players</title>
+
+  <style>
+    .compare-box {
+      margin-top: 30px;
+      padding: 15px;
+      border: 2px solid #aaa;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 850px;
+      font-family: Arial;
+      background: #f8f8f8;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .compare-table th, .compare-table td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 15px;
+    }
+    .better {
+      background-color: #c6f6c6; /* light green */
+      font-weight: bold;
+    }
+    .player-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+    }
+    .player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-bottom: 10px;
+    }
+    .select-box {
+      margin-right: 10px;
+      padding: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Compare Player Stats</h2>
+
+  <!-- Compare Section -->
+  <select id="player1" class="select-box"></select>
+  <select id="player2" class="select-box"></select>
+
+  <button onclick="comparePlayers()">Compare</button>
+
+  <div id="compare-result" class="compare-box"></div>
+
+
+  <script>
+    let allPlayers = [];
+
+    async function loadPlayers() {
+      let res = await fetch("playersStats.json");
+      let data = await res.json();
+      allPlayers = data.response;
+
+      let p1 = document.getElementById("player1");
+      let p2 = document.getElementById("player2");
+
+      allPlayers.forEach(p => {
+        let opt1 = new Option(p.player.name, p.player.name);
+        let opt2 = new Option(p.player.name, p.player.name);
+        p1.appendChild(opt1);
+        p2.appendChild(opt2);
+      });
+    }
+
+    function getPlayer(name) {
+      return allPlayers.find(x => x.player.name === name);
+    }
+
+    function highlight(p1Val, p2Val) {
+      if (p1Val > p2Val) return ["better", ""];
+      if (p2Val > p1Val) return ["", "better"];
+      return ["", ""];
+    }
+
+    function comparePlayers() {
+      let p1 = getPlayer(document.getElementById("player1").value);
+      let p2 = getPlayer(document.getElementById("player2").value);
+
+      let s1 = p1.statistics[0];
+      let s2 = p2.statistics[0];
+
+      function row(label, a, b) {
+        let [c1, c2] = highlight(a, b);
+        return `
+          <tr>
+            <td>${label}</td>
+            <td class="${c1}">${a}</td>
+            <td class="${c2}">${b}</td>
+          </tr>
+        `;
+      }
+
+      document.getElementById("compare-result").innerHTML = `
+        <div class="player-header">
+          <div style="text-align:center">
+            <img src="${p1.player.photo}" class="player-photo">
+            <h3>${p1.player.name}</h3>
+          </div>
+          <div style="text-align:center">
+            <img src="${p2.player.photo}" class="player-photo">
+            <h3>${p2.player.name}</h3>
+          </div>
+        </div>
+
+        <table class="compare-table">
+          <tr>
+            <th>Stat</th>
+            <th>${p1.player.name}</th>
+            <th>${p2.player.name}</th>
+          </tr>
+
+          ${row("Goals", s1.goals.total, s2.goals.total)}
+          ${row("Assists", s1.goals.assists, s2.goals.assists)}
+          ${row("Rating", parseFloat(s1.games.rating), parseFloat(s2.games.rating))}
+          ${row("Shots (total)", s1.shots.total, s2.shots.total)}
+          ${row("Shots on target", s1.shots.on, s2.shots.on)}
+          ${row("Passes (total)", s1.passes.total, s2.passes.total)}
+          ${row("Key passes", s1.passes.key, s2.passes.key)}
+          ${row("Dribbles (attempts)", s1.dribbles.attempts, s2.dribbles.attempts)}
+          ${row("Dribbles (success)", s1.dribbles.success, s2.dribbles.success)}
+          ${row("Tackles", s1.tackles.total, s2.tackles.total)}
+          ${row("Duels won", s1.duels.won, s2.duels.won)}
+          ${row("Minutes played", s1.games.minutes, s2.games.minutes)}
+          ${row("Yellow cards", s1.cards.yellow, s2.cards.yellow)}
+          ${row("Red cards", s1.cards.red, s2.cards.red)}
+        </table>
+      `;
+    }
+
+    loadPlayers();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial;
+  background: #fafafa;
+}
+
+#main-content {
+  flex: 1; /* pushes footer down */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#player-card {
+  margin-top: 20px;
+  padding: 20px;
+  width: 350px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  text-align: center;
+}
+#player-card img {
+  width: 130px;
+  border-radius: 50%;
+}
+#details {
+  display: none;
+  background: #f4f4f4;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+button {
+  padding: 8px 15px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+}
+#header {
+  width: 100%;
+  background-color: #fd7e14;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+#header h1 {
+  margin-left: 10%;
+  color: #f4f4f4;
+}
+
+.footer {
+  width: 100%;
+  background-color: #fd7e14;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.footer p {
+  color: #f4f4f4;
+  text-align: center;
+  align-items: center;
+}
+.main {
+  height: 500px;
+  width: 100%;
+}

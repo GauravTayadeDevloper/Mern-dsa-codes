@@ -3,67 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Liga Matches Demo</title>
+  <title>Player Search</title>
+
   <style>
-    body { font-family: Arial; background: #f2f2f2; padding: 20px; }
-    h1 { text-align: center; color: #d32f2f; }
-    #league-info { text-align: center; margin-bottom: 20px; }
-    #league-info img { width: 60px; vertical-align: middle; margin-right: 10px; }
-    #matches { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .match { background: white; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 15px; width: 250px; text-align: center; }
-    .match h3 { margin: 10px 0; font-size: 1.1em; }
-    .teams { font-weight: bold; }
-    .date { color: #555; font-size: 0.9em; }
+    #player-card {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 320px;
+      font-family: Arial;
+    }
+    #player-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+    #details {
+      display: none; 
+      margin-top: 15px;
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <div id="league-info">Loading League Info…</div>
-  <h1>La Liga Fixtures 2025/26</h1>
-  <div id="matches">Loading matches…</div>
+
+  <h2>Search Player</h2>
+
+  <input type="text" id="search" placeholder="Type player name..."/>
+  <button onclick="searchPlayer()">Search</button>
+
+  <div id="player-card"></div>
 
   <script>
-    const LEAGUE_ID = 140;
-    const SEASON = 2025;
-    const API_KEY = "67e7a1bf1ec752974ac7d1fe95043b2b";
+    let allPlayers = [];
 
-    async function fetchLeagueInfo() {
-      const url = `https://v3.football.api-sports.io/leagues?id=${LEAGUE_ID}`;
-      const res = await fetch(url, { headers: { "x-apisports-key": API_KEY } });
-      const data = await res.json();
-      const league = data.response[0].league;
-      const country = data.response[0].country;
-      document.getElementById("league-info").innerHTML = `
-        <img src="${league.logo}" alt="League Logo" />
-        <img src="${country.flag}" alt="Country Flag" />
-        <span>${league.name} (${country.name})</span>
+    async function loadPlayers() {
+      let res = await fetch("playersStats.json");
+      let data = await res.json();
+      allPlayers = data.response;
+    }
+
+    function searchPlayer() {
+      let name = document.getElementById("search").value.trim().toLowerCase();
+      let card = document.getElementById("player-card");
+      card.innerHTML = "";
+
+      if (name === "") {
+        card.innerHTML = "<p>Please enter a name.</p>";
+        return;
+      }
+
+      let playerObj = allPlayers.find(p =>
+        p.player.name.toLowerCase().includes(name)
+      );
+
+      if (!playerObj) {
+        card.innerHTML = "<p>No player found.</p>";
+        return;
+      }
+
+      const p = playerObj.player;
+      const stats = playerObj.statistics[0];
+
+      // BASIC CARD + SHOW MORE BUTTON
+      card.innerHTML = `
+        <img src="${p.photo}">
+        <h3>${p.name}</h3>
+        <p><b>Team:</b> ${stats.team.name}</p>
+        <p><b>League:</b> ${stats.league.name}</p>
+        <p><b>Goals:</b> ${stats.goals.total} | <b>Assists:</b> ${stats.goals.assists}</p>
+        <button onclick="toggleDetails()">Show More</button>
+
+        <div id="details">
+          <h4>Full Stats</h4>
+          <p><b>Position:</b> ${stats.games.position}</p>
+          <p><b>Appearances:</b> ${stats.games.appearences}</p>
+          <p><b>Minutes:</b> ${stats.games.minutes}</p>
+          <p><b>Rating:</b> ${stats.games.rating}</p>
+          <hr>
+          <p><b>Shots:</b> ${stats.shots.total} (On Target: ${stats.shots.on})</p>
+          <p><b>Passes:</b> ${stats.passes.total} (Key: ${stats.passes.key})</p>
+          <p><b>Accuracy:</b> ${stats.passes.accuracy}%</p>
+          <hr>
+          <p><b>Dribbles:</b> ${stats.dribbles.attempts} (Success: ${stats.dribbles.success})</p>
+          <p><b>Tackles:</b> ${stats.tackles.total}</p>
+          <p><b>Duels Won:</b> ${stats.duels.won}</p>
+          <hr>
+          <p><b>Yellow Cards:</b> ${stats.cards.yellow}</p>
+          <p><b>Red Cards:</b> ${stats.cards.red}</p>
+          <hr>
+          <p><b>Penalties Scored:</b> ${stats.penalty.scored}</p>
+          <p><b>Penalties Missed:</b> ${stats.penalty.missed}</p>
+        </div>
       `;
     }
 
-    async function fetchMatches() {
-      const url = `https://v3.football.api-sports.io/fixtures?league=${LEAGUE_ID}&season=${SEASON}`;
-      const res = await fetch(url, { headers: { "x-apisports-key": API_KEY } });
-      const data = await res.json();
-      const container = document.getElementById("matches");
-      container.innerHTML = "";
-      const fixtures = data.response.slice(0, 20); // show 20 matches
-      fixtures.forEach(match => {
-        const home = match.teams.home.name;
-        const away = match.teams.away.name;
-        const date = new Date(match.fixture.date).toLocaleString();
-        const score = match.goals.home !== null ? `${match.goals.home} - ${match.goals.away}` : "vs";
+    function toggleDetails() {
+      const details = document.getElementById("details");
+      const button = details.previousElementSibling;
 
-        const div = document.createElement("div");
-        div.className = "match";
-        div.innerHTML = `
-          <h3 class="teams">${home} ${score} ${away}</h3>
-          <p class="date">${date}</p>
-        `;
-        container.appendChild(div);
-      });
+      if (details.style.display === "none") {
+        details.style.display = "block";
+        button.innerText = "Show Less";
+      } else {
+        details.style.display = "none";
+        button.innerText = "Show More";
+      }
     }
 
-    fetchLeagueInfo();
-    fetchMatches();
+    loadPlayers();
   </script>
+
 </body>
 </html>
